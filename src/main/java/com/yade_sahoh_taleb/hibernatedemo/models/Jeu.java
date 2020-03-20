@@ -1,4 +1,4 @@
-package com.yade_sahoh_taleb.hibernatedemo.model;
+package com.yade_sahoh_taleb.hibernatedemo.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,7 +11,7 @@ public class Jeu {
   @Id
   @GeneratedValue
   @JsonProperty("id")
-  private long id;
+  private int id;
 
   @Column
   @JsonProperty("nom_jeu")
@@ -45,7 +45,7 @@ public class Jeu {
   @JsonProperty("nombre_joueurs_maximum")
   private int nombre_joueurs_maximum;
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

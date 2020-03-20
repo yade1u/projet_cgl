@@ -1,4 +1,4 @@
-package com.yade_sahoh_taleb.hibernatedemo.model;
+package com.yade_sahoh_taleb.hibernatedemo.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
