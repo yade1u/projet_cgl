@@ -1,31 +1,32 @@
 package com.yade_sahoh_taleb.hibernatedemo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "editeur_jeu")
-public class EditeurJeu extends CreatUpdateAt {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class EditeurJeu {
 
 	@Id
-    private Long id;
+	@Column
+	@JsonProperty("id")
+	private int id;
 	
-	@Basic(optional = false)
-    private String nom_editeur;
+	@Column
+
+	@JsonProperty("nom_editeur")
+	private String nom_editeur;
 	
 	public EditeurJeu(String nom_editeur) {
 		this.nom_editeur = nom_editeur;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
