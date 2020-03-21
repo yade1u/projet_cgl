@@ -3,6 +3,8 @@ package com.yade_sahoh_taleb.hibernatedemo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yade_sahoh_taleb.hibernatedemo.models.GenreJeu;
 import com.yade_sahoh_taleb.hibernatedemo.services.GenreJeuService;
 
-@RestController
-@RequestMapping("genres")
+import javax.servlet.http.HttpServletRequest;
+
+//@RestController
+@Controller
+//@RequestMapping("genres")
 public class GenreJeuController {
 	
 	private final GenreJeuService genreJeuService;
@@ -28,8 +33,13 @@ public class GenreJeuController {
 	 * @return List<GenreJeu>
 	 */
 	@GetMapping("/genres")
-	public List<GenreJeu> getGenreJeux() {
-		return genreJeuService.getGenreJeux();
+	public /*List<GenreJeu>*/ String getGenreJeux(HttpServletRequest request, ModelMap model) {
+
+			Iterable<GenreJeu> genreJeux = genreJeuService.getGenreJeux();
+			model.put("genreJeux", genreJeux);
+			return "genreJeuxList";
+
+			//return genreJeuService.getGenreJeux();
 	}
 	
 	/**
