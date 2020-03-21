@@ -17,7 +17,7 @@ public class TypeJeuService {
    * @return liste des Types jeux.
    **/
 
-  public List<TypeJeu> typeJeux() {
+  public List<TypeJeu> getTypeJeux() {
     List<TypeJeu> typeJeux = new ArrayList<>();
     typeJeuRepository.findAll().forEach(typeJeu -> typeJeux.add(typeJeu));
     return typeJeux;
@@ -28,7 +28,7 @@ public class TypeJeuService {
    * @param id  de Type jeu.
    * @return une entite de type TypeJeu.
    */
-  public TypeJeu getMeteoById(int id) {
+  public TypeJeu getTypeById(int id) {
     Optional<TypeJeu> optionalTypeJeu = typeJeuRepository.findById(id);
     if (optionalTypeJeu.isPresent()) {
       return optionalTypeJeu.get();
@@ -45,6 +45,7 @@ public class TypeJeuService {
   }
 
   /**
+   * Supprimer un type ne supprime pas les jeux associé
    * supprimer un type Jeu .
    * @param id long: l´identifiant de la entité.
    */

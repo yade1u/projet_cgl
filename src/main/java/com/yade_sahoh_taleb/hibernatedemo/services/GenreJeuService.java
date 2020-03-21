@@ -18,18 +18,18 @@ public class GenreJeuService {
    * @return liste des genres jeux.
    **/
 
-  public List<GenreJeu> genreJeux() {
+  public List<GenreJeu> getGenreJeux() {
     List<GenreJeu> genreJeux = new ArrayList<>();
     genreJeuRepository.findAll().forEach(genreJeu -> genreJeux.add(genreJeu));
     return genreJeux;
   }
 
   /**
-   * Récuperer une entité d un genre de jeu.
+   * Récuperer une entité d'un genre de jeu.
    * @param id  de genre jeu.
    * @return une entite de type GenreJeu.
    */
-  public GenreJeu getMeteoById(int id) {
+  public GenreJeu getGenreById(int id) {
     Optional<GenreJeu> optionalGenre = genreJeuRepository.findById(id);
     if (optionalGenre.isPresent()) {
       return optionalGenre.get();
@@ -46,6 +46,7 @@ public class GenreJeuService {
   }
 
   /**
+   * Supprimer un genre ne supprime pas les jeux associé
    * supprimer un genre Jeu .
    * @param id long: l´identifiant de la entité.
    */
