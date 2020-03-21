@@ -17,7 +17,7 @@ public class EditeurJeuService {
    * @return liste des editeurs jeux.
    **/
 
-  public List<EditeurJeu> editeurJeux() {
+  public List<EditeurJeu> getEditeurJeux() {
     List<EditeurJeu> editeurJeux = new ArrayList<>();
     editeurJeuRepository.findAll().forEach(editeurJeu -> editeurJeux.add(editeurJeu));
     return editeurJeux;
@@ -28,7 +28,7 @@ public class EditeurJeuService {
    * @param id  de l´editeur.
    * @return une entite de type EditeurJeu.
    */
-  public EditeurJeu getMeteoById(int id) {
+  public EditeurJeu getEditeurById(int id) {
     Optional<EditeurJeu> optionalEditeur = editeurJeuRepository.findById(id);
     if (optionalEditeur.isPresent()) {
       return optionalEditeur.get();
@@ -44,7 +44,9 @@ public class EditeurJeuService {
     editeurJeuRepository.save(editjeu);
   }
 
+  //A voir
   /**
+   * La suppression d'un éditeur jeu supprimera tout les jeux associés
    * supprimer un editeurJeu.
    * @param id long: l´identifiant de la entité.
    */

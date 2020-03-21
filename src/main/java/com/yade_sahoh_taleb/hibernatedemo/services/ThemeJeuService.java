@@ -18,7 +18,7 @@ public class ThemeJeuService {
    * @return liste des themes jeux.
    **/
 
-  public List<ThemeJeu> themeJeux() {
+  public List<ThemeJeu> getThemeJeux() {
     List<ThemeJeu> themeJeux = new ArrayList<>();
     themeJeuRepository.findAll().forEach(themeJeu -> themeJeux.add(themeJeu));
     return themeJeux;
@@ -29,7 +29,7 @@ public class ThemeJeuService {
    * @param id  de theme jeu.
    * @return une entite de type ThemeJeu.
    */
-  public ThemeJeu getMeteoById(int id) {
+  public ThemeJeu getThemeById(int id) {
     Optional<ThemeJeu> optionalThemeJeu = themeJeuRepository.findById(id);
     if (optionalThemeJeu.isPresent()) {
       return optionalThemeJeu.get();
@@ -46,6 +46,7 @@ public class ThemeJeuService {
   }
 
   /**
+   * Supprimer un theme ne supprime pas les jeux associé
    * supprimer un theme Jeu .
    * @param id long: l´identifiant de la entité.
    */
